@@ -76,6 +76,11 @@ class RoboFile extends \Robo\Tasks
 			 ->run();
 
 		$this->taskSshExec($host, $user)
+			->remoteDir('/var/www/' . $folder.'/releases')
+			->exec('ln -sd /var/www/' . $folder . '/releases/' . $tmp . '/src/app/etc/env.php ../../shared/env.php')
+			->run();
+
+		$this->taskSshExec($host, $user)
 			 ->remoteDir('/var/www/' . $folder)
 			 ->exec('chown -R www-data:www-data /var/www/' . $folder)
 			 ->run();
