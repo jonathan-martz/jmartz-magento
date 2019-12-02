@@ -172,7 +172,8 @@ class RoboFile extends \Robo\Tasks
 		$config = $this->loadRoboConfig();
 
 		$this->say('Removing Old Revisions');
-		return $this->getSshTask($config['host'], '/var/www/' . $config['folder'] . '/releases/')
+		return $this->taskSshExec($config['host'])
+			->remoteDir('/var/www/' . $config['folder'] . '/releases/')
 			->exec(
 				'ls -t . | '.
 				'tail -n +5 | '.
