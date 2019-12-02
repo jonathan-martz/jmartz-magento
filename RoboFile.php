@@ -56,46 +56,67 @@ class RoboFile extends \Robo\Tasks
     }
 
     public function su(){
+		$this->stopOnFail(true);
+
 		$config = $this->loadRoboConfig();
 
 		$this->taskSshExec($config['host'], $config['user'])
 			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
 			->exec('cd src && bin/magento setup:upgrade')
 			->run();
+
+		$this->stopOnFail(false);
 	}
 
     public function sdc(){
+		$this->stopOnFail(true);
 		$config = $this->loadRoboConfig();
 
 		$this->taskSshExec($config['host'], $config['user'])
 			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
 			->exec('cd src && bin/magento setup:di:compile')
 			->run();
+
+		$this->stopOnFail(false);
 	}
 
     public function sscd(){
+		$this->stopOnFail(true);
+
 		$config = $this->loadRoboConfig();
 
 		$this->taskSshExec($config['host'], $config['user'])
 			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
 			->exec('cd src && bin/magento setup:static-content:deploy')
 			->run();
+
+		$this->stopOnFail(false);
 	}
 
 	public function phanCheck(){
 		$config = $this->loadRoboConfig();
 
-		$this->stopOnFail(false);
-    	$filename = 'src/var/log/phan.json';
-		$this->_exec('vendor/bin/phan -m json -o '.$filename.' --dead-code-detection --unused-variable-detection');
-		if(\file_exists($filename)){
-			$json = \file_get_contents($filename);
-			$errors = \json_decode($json);
-			if(count($errors) !== 0){
-				exit("Phan detected some errors take a look at log/phan.json and fix the errors.");
-			}
-		}
-		$this->stopOnFail(true);
+		$filename = 'src/var/log/phan.json';
+		$this->taskSshExec($config['host'], $config['user'])
+			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
+			->exec('vendor/bin/phan -m json -o '.$filename.' --dead-code-detection --unused-variable-detection')
+			->run();
+
+		$this->taskRsync()
+			->fromPath('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'].'/'.$filename)
+			->fromHost($config['host'])
+			->fromUser($config['user'])
+			->toPath('.')
+			->run();
+
+		// add Module for this Kind of Phan Error Check
+		// if(\file_exists($filename)){
+		// 	$json = \file_get_contents($filename);
+		// 	$errors = \json_decode($json);
+		// 	if(count($errors) !== 0){
+		// 		exit("Phan detected some errors take a look at log/phan.json and fix the errors.");
+		// 	}
+		// }
     }
 
 	public function deploy()
@@ -124,10 +145,10 @@ class RoboFile extends \Robo\Tasks
 	public function publishVersion(){
 		$config = $this->loadRoboConfig();
 
-		$this->taskSshExec($config['host'], $user)
-			->remoteDir('/var/www/' . $folder)
+		$this->taskSshExec($config['host'], $config['user'])
+			->remoteDir('/var/www/' . $config['folder'])
 			->exec('rm current')
-			->exec('ln -sd /var/www/' . $folder . '/releases/' . $tmp . '/src/pub current')
+			->exec('ln -sd /var/www/' . $config['folder'] . '/releases/' . $config['tmp'] . '/src/pub current')
 			->run();
 
 		$this->taskSshExec($config['host'], $config['user'])
