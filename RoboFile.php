@@ -137,6 +137,11 @@ class RoboFile extends \Robo\Tasks
 			->toPath('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
 			->recursive()
 			->run();
+
+		$this->taskSshExec($config['host'], $config['user'])
+			->remoteDir('/var/www/' . $config['folder'] . '/releases/'. $config['tmp'].'/app/etc')
+			->exec('ln -s /var/www/' . $config['folder'] . '/shared/env.php')
+			->run();
 	}
 
 	public function publishVersion(){
