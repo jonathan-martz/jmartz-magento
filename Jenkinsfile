@@ -10,7 +10,7 @@ pipeline {
                 sh 'robo generate:robo-config-develop'
             }
         }
-        stage('Deploy: Develop') {
+        stage('Generate Config: Develop') {
             when {
                 branch "develop"
             }
@@ -43,6 +43,11 @@ pipeline {
         stage('Publish Version') {
             steps {
                 sh 'robo deploy'
+            }
+        }
+        stage('Remove Old Revisions') {
+            steps {
+                sh 'robo remove:old-revisions'
             }
         }
     }
