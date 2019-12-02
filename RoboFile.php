@@ -36,7 +36,7 @@ class RoboFile extends \Robo\Tasks
 		$filename = 'robo-config.json';
 
 		if(file_exists($filename)){
-			$file = \file_get_contents($filename);
+			$file = \file_get_contents($filename, true);
 
 			return \json_decode($file);
 		}
