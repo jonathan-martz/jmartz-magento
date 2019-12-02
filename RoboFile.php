@@ -39,7 +39,7 @@ class RoboFile extends \Robo\Tasks
 		$user = 'root';
 		$host = '195.201.38.163';
 		$tmp = date('d-m-Y-h-i-s');
-		$folder = 'magento.jmartz.de';
+		$folder = 'magento-develop.jmartz.de';
 		$this->deploy($user,$host,$tmp,$folder);
 	}
 
