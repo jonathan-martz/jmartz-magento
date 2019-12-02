@@ -48,10 +48,11 @@ class RoboFile extends \Robo\Tasks
     {
     	$config = $this->loadRoboConfig();
 
-		$this->stopOnFail(true);
-		$this->_exec('composer install --ignore-platform-reqs');
-        $this->_exec('cd src && composer install --ignore-platform-reqs');
-        $this->stopOnFail(false);
+		$this->taskSshExec($config['host'], $config['user'])
+			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
+			->exec('composer install --ignore-platform-reqs')
+			->exec('cd src && composer install --ignore-platform-reqs')
+			->run();
     }
 
 	public function phanCheck(){
