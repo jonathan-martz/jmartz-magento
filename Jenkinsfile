@@ -12,7 +12,7 @@ pipeline {
                 branch "master"
             }
             steps {
-                sh 'robo  download:config:production'
+                sh 'robo  download:config-production'
             }
         }
         stage('Download Config: Develop') {
@@ -20,7 +20,7 @@ pipeline {
                 branch "develop"
             }
             steps {
-                sh 'robo download:config:develop'
+                sh 'robo download:config-develop'
             }
         }
         stage('Magento2 Setup') {
