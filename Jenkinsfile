@@ -7,7 +7,7 @@ pipeline {
                 branch "master"
             }
             steps {
-                sh 'robo generate:robo-config-develop'
+                sh 'robo generate:robo-config-master'
             }
         }
         stage('Generate Config: Develop') {
