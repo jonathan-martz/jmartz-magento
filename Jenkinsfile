@@ -7,6 +7,12 @@ pipeline {
                 sh 'robo composer:install'
             }
         }
+        stage('Magento2 Setup') {
+            steps {
+                sh 'bin/magento setup:upgrade'
+                sh 'bin/magento setup:di:compile'
+            }
+        }
         stage('Phan') {
             steps {
                 sh 'robo phan:check'
