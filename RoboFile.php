@@ -6,6 +6,7 @@ class RoboFile extends \Robo\Tasks
     {
 		$this->stopOnFail(true);
         $this->taskComposerInstall()
+			->workDir('src')
             ->ignorePlatformRequirements()
             ->run();
     }
