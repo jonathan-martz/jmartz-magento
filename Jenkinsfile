@@ -42,7 +42,7 @@ pipeline {
         }
         stage('Publish Version') {
             steps {
-                sh 'robo deploy'
+                sh 'robo publish:version'
             }
         }
         stage('Remove Old Revisions') {
