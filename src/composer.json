@@ -11,6 +11,8 @@
         "sort-packages": true
     },
     "require": {
+        "php": "^7.1|^7.2|^7.3|^7.4",
+        "ext-json": "*",
         "magento/product-community-edition": "^2.3.3"
     },
     "require-dev": {

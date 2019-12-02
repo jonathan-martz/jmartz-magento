@@ -2,25 +2,30 @@ pipeline {
     agent any
 
     stages {
+        stage('Generate Config: Master') {
+            when {
+                branch "master"
+            }
+            steps {
+                sh 'robo generated:robo-config-develop'
+            }
+        }
+        stage('Deploy: Develop') {
+            when {
+                branch "develop"
+            }
+            steps {
+                sh 'robo generated:robo-config-develop'
+            }
+        }
         stage('Install requirements') {
             steps {
                 sh 'robo composer:install'
             }
         }
-        stage('Download Config: Master') {
-            when {
-                branch "master"
-            }
+        stage('Deploy') {
             steps {
-                sh 'robo  download:config-production'
-            }
-        }
-        stage('Download Config: Develop') {
-            when {
-                branch "develop"
-            }
-            steps {
-                sh 'robo download:config-develop'
+                sh 'robo deploy'
             }
         }
         stage('Magento2 Setup') {
@@ -35,20 +40,9 @@ pipeline {
                 sh 'robo phan:check'
             }
         }
-        stage('Deploy: Master') {
-            when {
-                branch "master"
-            }
+        stage('Publish Version') {
             steps {
-                sh 'robo deploy:production'
-            }
-        }
-        stage('Deploy: Develop') {
-            when {
-                branch "develop"
-            }
-            steps {
-                sh 'robo deploy:develop'
+                sh 'robo deploy'
             }
         }
     }

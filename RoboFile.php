@@ -2,38 +2,52 @@
 
 class RoboFile extends \Robo\Tasks
 {
-	public function downloadConfigDevelop(){
-		$user = 'root';
-		$host = '195.201.38.163';
-		$tmp = date('d-m-Y-h-i-s');
-		$folder = 'magento-develop.jmartz.de';
+	public function generateRoboConfigDevelop(){
+		$filename = 'robo-config.json';
 
-		$this->taskRsync()
-			->fromHost($host)
-			->fromPath('/var/www/' . $folder.'/shared/env.php')
-			->fromUser($user)
-			->toPath('./src/app/etc/env.php')
-			->stats()
-			->run();
+		$robo['user'] = 'root';
+		$robo['host'] = '195.201.38.163';
+		$robo['tmp'] = date('d-m-Y-h-i-s');
+		$robo['folder'] = 'magento-develop.jmartz.de';
+
+		if(\file_exists($filename)){
+			\exec('rm '.$filename);
+		}
+
+		\file_put_contents('robo-config.json', \json_encode($robo, JSON_FORCE_OBJECT));
 	}
 
-	public function downloadConfigMaster(){
-		$user = 'root';
-		$host = '195.201.38.163';
-		$tmp = date('d-m-Y-h-i-s');
-		$folder = 'magento.jmartz.de';
+	public function generateRoboConfigMaster(){
+		$filename = 'robo-config.json';
 
-		$this->taskRsync()
-			->fromHost($host)
-			->fromPath('/var/www/' . $folder.'/shared/env.php')
-			->fromUser($user)
-			->toPath('./src/app/etc/env.php')
-			->stats()
-			->run();
+		$robo['user'] = 'root';
+		$robo['host'] = '195.201.38.163';
+		$robo['tmp'] = date('d-m-Y-h-i-s');
+		$robo['folder'] = 'magento.jmartz.de';
+
+		if(\file_exists($filename)){
+			\exec('rm '.$filename);
+		}
+
+		\file_put_contents('robo-config.json', \json_encode($robo, JSON_FORCE_OBJECT));
+	}
+
+	public function loadRoboConfig():array{
+		$filename = 'robo-config.json';
+
+		if(file_exists($filename)){
+			$file = \file_get_contents($filename);
+
+			return \json_decode($file);
+		}
+
+		return [];
 	}
 
     public function composerInstall()
     {
+    	$config = $this->loadRoboConfig();
+
 		$this->stopOnFail(true);
 		$this->_exec('composer install --ignore-platform-reqs');
         $this->_exec('cd src && composer install --ignore-platform-reqs');
@@ -41,6 +55,8 @@ class RoboFile extends \Robo\Tasks
     }
 
 	public function phanCheck(){
+		$config = $this->loadRoboConfig();
+
 		$this->stopOnFail(false);
     	$filename = 'src/var/log/phan.json';
 		$this->_exec('vendor/bin/phan -m json -o '.$filename.' --dead-code-detection --unused-variable-detection');
@@ -54,66 +70,53 @@ class RoboFile extends \Robo\Tasks
 		$this->stopOnFail(true);
     }
 
-
-	public function deployProduction(){
-		$this->stopOnFail(true);
-		$user = 'root';
-		$host = '195.201.38.163';
-		$tmp = date('d-m-Y-h-i-s');
-		$folder = 'magento.jmartz.de';
-		$this->deploy($user,$host,$tmp,$folder);
-	}
-
-	public function deployDevelop(){
-		$this->stopOnFail(true);
-		$user = 'root';
-		$host = '195.201.38.163';
-		$tmp = date('d-m-Y-h-i-s');
-		$folder = 'magento-develop.jmartz.de';
-		$this->deploy($user,$host,$tmp,$folder);
-	}
-
 	public function deploy($user,$host,$tmp,$folder)
 	{
-		$this->taskSshExec($host, $user)
-			 ->remoteDir('/var/www/' . $folder . '/releases')
-			 ->exec('mkdir ' . $tmp)
-			 ->run();
+		$config = $this->loadRoboConfig();
+
+		$this->taskSshExec($config['host'], $config['user'])
+			->remoteDir('/var/www/' . $config['folder'] . '/releases')
+			->exec('mkdir ' . $config['tmp'])
+			->run();
 		$this->stopOnFail(false);
 
 		$this->taskRsync()
-			 ->fromPath('.')
-			 ->toHost($host)
-			 ->toUser($user)
-			 ->verbose()
-			 ->stats()
-			 ->progress()
-			 ->excludeVcs()
-			 ->toPath('/var/www/' . $folder . '/releases/' . $tmp)
-			 ->recursive()
-			 ->run();
+			->fromPath('.')
+			->toHost($config['host'])
+			->toUser($config['user'])
+			->verbose()
+			->stats()
+			->progress()
+			->excludeVcs()
+			->toPath('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
+			->recursive()
+			->run();
+	}
 
-		$this->taskSshExec($host, $user)
-			 ->remoteDir('/var/www/' . $folder)
-			 ->exec('rm current')
-			 ->exec('ln -sd /var/www/' . $folder . '/releases/' . $tmp . '/src/pub current')
-			 ->run();
+	public function publishVersion(){
+		$config = $this->loadRoboConfig();
 
-		$this->taskSshExec($host, $user)
-			 ->remoteDir('/var/www/' . $folder.'/releases')
-			 ->exec('rm current')
-			 ->exec('ln -sd /var/www/' . $folder . '/releases/' . $tmp . '/src current')
-			 ->run();
+		$this->taskSshExec($config['host'], $user)
+			->remoteDir('/var/www/' . $folder)
+			->exec('rm current')
+			->exec('ln -sd /var/www/' . $folder . '/releases/' . $tmp . '/src/pub current')
+			->run();
 
-		$this->taskSshExec($host, $user)
-			 ->remoteDir('/var/www/' . $folder)
-			 ->exec('chown -R www-data:www-data /var/www/' . $folder)
-			 ->run();
+		$this->taskSshExec($config['host'], $config['user'])
+			->remoteDir('/var/www/' . $config['folder'].'/releases')
+			->exec('rm current')
+			->exec('ln -sd /var/www/' . $config['host'] . '/releases/' . $config['tmp'] . '/src current')
+			->run();
 
-		$this->taskSshExec($host, $user)
-			 ->remoteDir('/var/www/' . $folder)
-			 ->exec('service php7.3-fpm restart')
-			 ->run();
+		$this->taskSshExec($config['host'], $config['user'])
+			->remoteDir('/var/www/' . $config['folder'])
+			->exec('chown -R www-data:www-data /var/www/' . $config['folder'])
+			->run();
+
+		$this->taskSshExec($config['host'], $config['user'])
+			->remoteDir('/var/www/' . $config['folder'])
+			->exec('service php7.3-fpm restart')
+			->run();
 	}
 }
 
