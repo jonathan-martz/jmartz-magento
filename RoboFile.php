@@ -55,6 +55,33 @@ class RoboFile extends \Robo\Tasks
 			->run();
     }
 
+    public function su(){
+		$config = $this->loadRoboConfig();
+
+		$this->taskSshExec($config['host'], $config['user'])
+			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
+			->exec('cd src && bin/magento setup:upgrade')
+			->run();
+	}
+
+    public function sdc(){
+		$config = $this->loadRoboConfig();
+
+		$this->taskSshExec($config['host'], $config['user'])
+			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
+			->exec('cd src && bin/magento setup:di:compile')
+			->run();
+	}
+
+    public function sscd(){
+		$config = $this->loadRoboConfig();
+
+		$this->taskSshExec($config['host'], $config['user'])
+			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
+			->exec('cd src && bin/magento setup:static-content:deploy')
+			->run();
+	}
+
 	public function phanCheck(){
 		$config = $this->loadRoboConfig();
 
