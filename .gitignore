@@ -1,6 +1,6 @@
-/pub
-/generated
-/var
-/dev
-/vendor
+/src/pub
+/src/generated
+/src/var
+/src/dev
+/src/vendor
 .idea
