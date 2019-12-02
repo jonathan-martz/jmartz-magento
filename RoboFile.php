@@ -87,7 +87,7 @@ class RoboFile extends \Robo\Tasks
 
 		$this->taskSshExec($config['host'], $config['user'])
 			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
-			->exec('cd src && bin/magento setup:static-content:deploy')
+			->exec('cd src && bin/magento setup:static-content:deploy -f')
 			->run();
 
 		$this->stopOnFail(false);
