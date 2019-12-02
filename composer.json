@@ -1,0 +1,14 @@
+{
+    "name": "jonathan/jmartz-magento",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jonathan-martz",
+            "email": "github@jmartz.de"
+        }
+    ],
+    "require": {
+        "consolidation/robo": "^2.0"
+    }
+}

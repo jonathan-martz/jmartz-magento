@@ -5,10 +5,7 @@ class RoboFile extends \Robo\Tasks
     public function composerInstall()
     {
 		$this->stopOnFail(true);
-        $this->taskComposerInstall()
-			->workDir('src')
-            ->ignorePlatformRequirements()
-            ->run();
+        $this->_exec('cd src && composer install --ignore-platform-reqs');
     }
 
 	public function phanCheck(){
