@@ -7,6 +7,22 @@ pipeline {
                 sh 'robo composer:install'
             }
         }
+        stage('Download Config: Master') {
+            when {
+                branch "master"
+            }
+            steps {
+                sh 'robo  download:config:production'
+            }
+        }
+        stage('Download Config: Develop') {
+            when {
+                branch "develop"
+            }
+            steps {
+                sh 'robo download:config:develop'
+            }
+        }
         stage('Magento2 Setup') {
             steps {
                 sh 'cd src && bin/magento setup:upgrade'

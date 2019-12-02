@@ -2,6 +2,36 @@
 
 class RoboFile extends \Robo\Tasks
 {
+	public function downloadConfigDevelop(){
+		$user = 'root';
+		$host = '195.201.38.163';
+		$tmp = date('d-m-Y-h-i-s');
+		$folder = 'magento-develop.jmartz.de';
+
+		$this->taskRsync()
+			->fromHost($host)
+			->fromPath('/var/www/' . $folder.'/shared/env.php')
+			->fromUser($user)
+			->toPath('./src/app/etc/env.php')
+			->stats()
+			->run();
+	}
+
+	public function downloadConfigMaster(){
+		$user = 'root';
+		$host = '195.201.38.163';
+		$tmp = date('d-m-Y-h-i-s');
+		$folder = 'magento.jmartz.de';
+
+		$this->taskRsync()
+			->fromHost($host)
+			->fromPath('/var/www/' . $folder.'/shared/env.php')
+			->fromUser($user)
+			->toPath('./src/app/etc/env.php')
+			->stats()
+			->run();
+	}
+
     public function composerInstall()
     {
 		$this->stopOnFail(true);
@@ -74,11 +104,6 @@ class RoboFile extends \Robo\Tasks
 			 ->exec('rm current')
 			 ->exec('ln -sd /var/www/' . $folder . '/releases/' . $tmp . '/src current')
 			 ->run();
-
-		$this->taskSshExec($host, $user)
-			->remoteDir('/var/www/' . $folder.'/releases')
-			->exec('ln -sd /var/www/' . $folder . '/releases/' . $tmp . '/src/app/etc/env.php /var/www/' . $folder . '/shared')
-			->run();
 
 		$this->taskSshExec($host, $user)
 			 ->remoteDir('/var/www/' . $folder)
