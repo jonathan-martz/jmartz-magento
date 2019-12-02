@@ -9,9 +9,9 @@ pipeline {
         }
         stage('Magento2 Setup') {
             steps {
-                sh 'bin/magento setup:upgrade'
-                sh 'bin/magento setup:di:compile'
-                sh 'bin/magento setup:static-content:deploy'
+                sh 'cd src && bin/magento setup:upgrade'
+                sh 'cd src && bin/magento setup:di:compile'
+                sh 'cd src && bin/magento setup:static-content:deploy'
             }
         }
         stage('Phan') {
