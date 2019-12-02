@@ -11,6 +11,7 @@ pipeline {
             steps {
                 sh 'bin/magento setup:upgrade'
                 sh 'bin/magento setup:di:compile'
+                sh 'bin/magento setup:static-content:deploy'
             }
         }
         stage('Phan') {
