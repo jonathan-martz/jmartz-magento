@@ -167,6 +167,19 @@ class RoboFile extends \Robo\Tasks
 			->exec('service php7.3-fpm restart')
 			->run();
 	}
+
+	public function removeOldRevisions() {
+		$config = $this->loadRoboConfig();
+
+		$this->say('Removing Old Revisions');
+		return $this->getSshTask($config['host'], '/var/www/' . $config['folder'] . '/releases/')
+			->exec(
+				'ls -t . | '.
+				'tail -n +5 | '.
+				'xargs -I {} rm -rf ./{}'
+			)
+			->run();
+	}
 }
 
 ?>
