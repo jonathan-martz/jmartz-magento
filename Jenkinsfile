@@ -18,14 +18,14 @@ pipeline {
                 sh 'robo generate:robo-config-develop'
             }
         }
-        stage('Install requirements') {
-            steps {
-                sh 'robo composer:install'
-            }
-        }
         stage('Deploy') {
             steps {
                 sh 'robo deploy'
+            }
+        }
+        stage('Install requirements') {
+            steps {
+                sh 'robo composer:install'
             }
         }
         stage('Magento2 Setup') {
