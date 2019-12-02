@@ -70,7 +70,7 @@ class RoboFile extends \Robo\Tasks
 		$this->stopOnFail(true);
     }
 
-	public function deploy($user,$host,$tmp,$folder)
+	public function deploy()
 	{
 		$config = $this->loadRoboConfig();
 
