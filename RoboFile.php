@@ -66,13 +66,13 @@ class RoboFile extends \Robo\Tasks
 		$this->taskSshExec($host, $user)
 			 ->remoteDir('/var/www/' . $folder)
 			 ->exec('rm current')
-			 ->exec('ln -sd /var/www/' . $folder . '/releases/' . $tmp . '/public current')
+			 ->exec('ln -sd /var/www/' . $folder . '/releases/' . $tmp . '/src/pub current')
 			 ->run();
 
 		$this->taskSshExec($host, $user)
 			 ->remoteDir('/var/www/' . $folder.'/releases')
 			 ->exec('rm current')
-			 ->exec('ln -sd /var/www/' . $folder . '/releases/' . $tmp . ' current')
+			 ->exec('ln -sd /var/www/' . $folder . '/releases/' . $tmp . '/src current')
 			 ->run();
 
 		$this->taskSshExec($host, $user)
