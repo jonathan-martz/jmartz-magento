@@ -93,6 +93,19 @@ class RoboFile extends \Robo\Tasks
 		$this->stopOnFail(false);
 	}
 
+	public function cacl(){
+		$this->stopOnFail(true);
+
+		$config = $this->loadRoboConfig();
+
+		$this->taskSshExec($config['host'], $config['user'])
+			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
+			->exec('cd src && bin/magento ca:cl')
+			->run();
+
+		$this->stopOnFail(false);
+	}
+
 	public function phanCheck(){
 		$config = $this->loadRoboConfig();
 

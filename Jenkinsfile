@@ -38,6 +38,7 @@ pipeline {
                 sh 'robo su'
                 sh 'robo sdc'
                 sh 'robo sscd'
+                sh 'robo cacl'
             }
         }
         stage('Phan') {
