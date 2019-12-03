@@ -114,14 +114,7 @@ class RoboFile extends \Robo\Tasks
 			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
 			->exec('vendor/bin/phan -m json -o '.$filename.' --dead-code-detection --unused-variable-detection')
 			->run();
-
-		$this->taskRsync()
-			->fromPath('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'].'/'.$filename)
-			->fromHost($config['host'])
-			->fromUser($config['user'])
-			->toPath('.')
-			->run();
-
+		
 		// add Module for this Kind of Phan Error Check
 		// if(\file_exists($filename)){
 		// 	$json = \file_get_contents($filename);
