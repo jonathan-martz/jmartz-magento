@@ -171,6 +171,15 @@ class RoboFile extends \Robo\Tasks
 			->run();
 	}
 
+	public function downloadN98(){
+		$config = $this->loadRoboConfig();
+
+		$this->taskSshExec($config['host'], $config['user'])
+			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
+			->exec('curl -O https://files.magerun.net/n98-magerun2.phar')
+			->run();
+	}
+
 	public function removeOldRevisions() {
 		$config = $this->loadRoboConfig();
 

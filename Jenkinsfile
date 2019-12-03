@@ -39,6 +39,7 @@ pipeline {
                 sh 'robo sdc'
                 sh 'robo sscd'
                 sh 'robo cacl'
+                sh 'robo download:n98'
             }
         }
         stage('Phan') {
