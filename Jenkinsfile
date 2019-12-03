@@ -18,6 +18,11 @@ pipeline {
                 sh 'robo generate:robo-config-develop'
             }
         }
+        stage('Remove Old Revisions') {
+            steps {
+                sh 'robo remove:old-revisions'
+            }
+        }
         stage('Deploy') {
             steps {
                 sh 'robo deploy'
