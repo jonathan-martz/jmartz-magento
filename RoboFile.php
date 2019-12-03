@@ -112,9 +112,9 @@ class RoboFile extends \Robo\Tasks
 		$filename = 'src/var/log/phan.json';
 		$this->taskSshExec($config['host'], $config['user'])
 			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
-			->exec('vendor/bin/phan -m json -o '.$filename.' --dead-code-detection --unused-variable-detection')
+			->exec('vendor/bin/phan -m json -o '.$filename.' --unused-variable-detection')
 			->run();
-		
+
 		// add Module for this Kind of Phan Error Check
 		// if(\file_exists($filename)){
 		// 	$json = \file_get_contents($filename);
