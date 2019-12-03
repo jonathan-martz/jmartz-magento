@@ -175,7 +175,7 @@ class RoboFile extends \Robo\Tasks
 		$config = $this->loadRoboConfig();
 
 		$this->taskSshExec($config['host'], $config['user'])
-			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
+			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'].'/src')
 			->exec('curl -O https://files.magerun.net/n98-magerun2.phar')
 			->run();
 	}
