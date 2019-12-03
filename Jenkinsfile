@@ -18,7 +18,7 @@ pipeline {
                 sh 'robo generate:robo-config-develop'
             }
         }
-        stage('Remove Old Revisions') {
+        stage('Remove Old Revisions start') {
             steps {
                 sh 'robo remove:old-revisions'
             }
@@ -50,7 +50,7 @@ pipeline {
                 sh 'robo publish:version'
             }
         }
-        stage('Remove Old Revisions') {
+        stage('Remove Old Revisions end') {
             steps {
                 sh 'robo remove:old-revisions'
             }
