@@ -151,7 +151,7 @@ class RoboFile extends \Robo\Tasks
 		$this->taskSshExec($config['host'], $config['user'])
 			->remoteDir('/var/www/' . $config['folder'].'/releases')
 			->exec('rm current')
-			->exec('ln -sd /var/www/' . $config['host'] . '/releases/' . $config['tmp'] . '/src current')
+			->exec('ln -sd /var/www/' . $config['folder'] . '/releases/' . $config['tmp'] . ' current')
 			->run();
 
 		$this->taskSshExec($config['host'], $config['user'])
