@@ -1480,12 +1480,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonathan-martz/magento2-update-notify.git",
-                "reference": "4f9041322aa04082b63754b111a7b2b086a5c98f"
+                "reference": "565bfbdd6fae8b4e6f156b1460cc1422dc5e3166"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonathan-martz/magento2-update-notify/zipball/4f9041322aa04082b63754b111a7b2b086a5c98f",
-                "reference": "4f9041322aa04082b63754b111a7b2b086a5c98f",
+                "url": "https://api.github.com/repos/jonathan-martz/magento2-update-notify/zipball/565bfbdd6fae8b4e6f156b1460cc1422dc5e3166",
+                "reference": "565bfbdd6fae8b4e6f156b1460cc1422dc5e3166",
                 "shasum": ""
             },
             "require": {
@@ -1511,7 +1511,7 @@
                     "email": "github@jmartz.de"
                 }
             ],
-            "time": "2019-12-03T22:02:48+00:00"
+            "time": "2019-12-04T21:44:04+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -15726,16 +15726,16 @@
         },
         {
             "name": "zendframework/zend-view",
-            "version": "2.11.3",
+            "version": "2.11.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-view.git",
-                "reference": "e766457bd6ce13c5354e443bb949511b6904d7f5"
+                "reference": "a8b1b2d9b52e191539be861a6529f8c8a0c06b9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-view/zipball/e766457bd6ce13c5354e443bb949511b6904d7f5",
-                "reference": "e766457bd6ce13c5354e443bb949511b6904d7f5",
+                "url": "https://api.github.com/repos/zendframework/zend-view/zipball/a8b1b2d9b52e191539be861a6529f8c8a0c06b9d",
+                "reference": "a8b1b2d9b52e191539be861a6529f8c8a0c06b9d",
                 "shasum": ""
             },
             "require": {
@@ -15809,7 +15809,7 @@
                 "view",
                 "zf"
             ],
-            "time": "2019-10-11T21:10:04+00:00"
+            "time": "2019-12-04T08:40:50+00:00"
         }
     ],
     "packages-dev": [
