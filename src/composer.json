@@ -13,7 +13,8 @@
     "require": {
         "php": "^7.1|^7.2|^7.3|^7.4",
         "ext-json": "*",
-        "magento/product-community-edition": "^2.3.3"
+        "magento/product-community-edition": "^2.3.3",
+        "jonathan-martz/magento2-update-notify": "dev-master"
     },
     "require-dev": {
         "allure-framework/allure-phpunit": "~1.2.0",
