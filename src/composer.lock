@@ -1480,12 +1480,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonathan-martz/magento2-update-notify.git",
-                "reference": "565bfbdd6fae8b4e6f156b1460cc1422dc5e3166"
+                "reference": "5e28904eaa690c8104edd17b0162b379fbab53f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonathan-martz/magento2-update-notify/zipball/565bfbdd6fae8b4e6f156b1460cc1422dc5e3166",
-                "reference": "565bfbdd6fae8b4e6f156b1460cc1422dc5e3166",
+                "url": "https://api.github.com/repos/jonathan-martz/magento2-update-notify/zipball/5e28904eaa690c8104edd17b0162b379fbab53f4",
+                "reference": "5e28904eaa690c8104edd17b0162b379fbab53f4",
                 "shasum": ""
             },
             "require": {
@@ -1498,7 +1498,7 @@
                     "registration.php"
                 ],
                 "psr-4": {
-                    "JonathanMartz\\MagentoUpdateNotify\\": "Cron"
+                    "JonathanMartz\\MagentoUpdateNotify\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1511,7 +1511,7 @@
                     "email": "github@jmartz.de"
                 }
             ],
-            "time": "2019-12-04T21:44:04+00:00"
+            "time": "2019-12-05T16:58:22+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -14461,16 +14461,16 @@
         },
         {
             "name": "zendframework/zend-http",
-            "version": "2.11.0",
+            "version": "2.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-http.git",
-                "reference": "0fafa5029e87d9cfe8682e8d4b093df8f6d64d59"
+                "reference": "76000da8490b8685d63ff6f6ff8eefa459f6e9e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-http/zipball/0fafa5029e87d9cfe8682e8d4b093df8f6d64d59",
-                "reference": "0fafa5029e87d9cfe8682e8d4b093df8f6d64d59",
+                "url": "https://api.github.com/repos/zendframework/zend-http/zipball/76000da8490b8685d63ff6f6ff8eefa459f6e9e7",
+                "reference": "76000da8490b8685d63ff6f6ff8eefa459f6e9e7",
                 "shasum": ""
             },
             "require": {
@@ -14512,7 +14512,7 @@
                 "zend",
                 "zf"
             ],
-            "time": "2019-12-03T11:02:51+00:00"
+            "time": "2019-12-04T23:02:34+00:00"
         },
         {
             "name": "zendframework/zend-hydrator",
