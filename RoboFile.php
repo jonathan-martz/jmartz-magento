@@ -112,14 +112,7 @@ class RoboFile extends \Robo\Tasks
 		$filename = 'src/var/log/phan.json';
 		$this->taskSshExec($config['host'], $config['user'])
 			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
-			->exec('vendor/bin/phan -m json -o '.$filename.' --dead-code-detection --unused-variable-detection')
-			->run();
-
-		$this->taskRsync()
-			->fromPath('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'].'/'.$filename)
-			->fromHost($config['host'])
-			->fromUser($config['user'])
-			->toPath('.')
+			->exec('vendor/bin/phan -m json -o '.$filename.' --unused-variable-detection')
 			->run();
 
 		// add Module for this Kind of Phan Error Check
@@ -175,6 +168,15 @@ class RoboFile extends \Robo\Tasks
 		$this->taskSshExec($config['host'], $config['user'])
 			->remoteDir('/var/www/' . $config['folder'])
 			->exec('service php7.3-fpm restart')
+			->run();
+	}
+
+	public function downloadN98(){
+		$config = $this->loadRoboConfig();
+
+		$this->taskSshExec($config['host'], $config['user'])
+			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'].'/src')
+			->exec('curl -O https://files.magerun.net/n98-magerun2.phar')
 			->run();
 	}
 
