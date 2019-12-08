@@ -14,6 +14,7 @@
         "php": "^7.1|^7.2|^7.3|^7.4",
         "ext-json": "*",
         "jonathan-martz/magento2-update-notify": "dev-master",
+        "jonathan-martz/magento2-statistics": "dev-master",
         "magento/module-bundle-sample-data": "^100.3",
         "magento/module-catalog-rule-sample-data": "^100.3",
         "magento/module-catalog-sample-data": "^100.3",

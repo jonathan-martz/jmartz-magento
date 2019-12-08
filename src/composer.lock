@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "037278af4741862b1686ca40fe3dbec3",
+    "content-hash": "3b67b549abc7e5b26381277e6d140255",
     "packages": [
         {
             "name": "amzn/amazon-pay-and-login-magento-2-module",
@@ -1187,16 +1187,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.4.1",
+            "version": "6.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "0895c932405407fd3a7368b6910c09a24d26db11"
+                "reference": "dbc2bc3a293ed6b1ae08a3651e2bfd213d19b6a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/0895c932405407fd3a7368b6910c09a24d26db11",
-                "reference": "0895c932405407fd3a7368b6910c09a24d26db11",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/dbc2bc3a293ed6b1ae08a3651e2bfd213d19b6a5",
+                "reference": "dbc2bc3a293ed6b1ae08a3651e2bfd213d19b6a5",
                 "shasum": ""
             },
             "require": {
@@ -1211,12 +1211,13 @@
                 "psr/log": "^1.1"
             },
             "suggest": {
+                "ext-intl": "Required for Internationalized Domain Name (IDN) support",
                 "psr/log": "Required for using the Log middleware"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.3-dev"
+                    "dev-master": "6.5-dev"
                 }
             },
             "autoload": {
@@ -1249,7 +1250,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2019-10-23T15:58:00+00:00"
+            "time": "2019-12-07T18:20:45+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1475,17 +1476,56 @@
             "time": "2014-10-12T19:18:40+00:00"
         },
         {
+            "name": "jonathan-martz/magento2-statistics",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jonathan-martz/magento2-statistics.git",
+                "reference": "d239db35911198c4d94d289f5e426ab0410a36c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jonathan-martz/magento2-statistics/zipball/d239db35911198c4d94d289f5e426ab0410a36c5",
+                "reference": "d239db35911198c4d94d289f5e426ab0410a36c5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.1|^7.2|^7.3|^7.4"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "JonathanMartz\\Statistics\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "jonathan-martz",
+                    "email": "github@jmartz.de"
+                }
+            ],
+            "time": "2019-12-08T22:10:33+00:00"
+        },
+        {
             "name": "jonathan-martz/magento2-update-notify",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonathan-martz/magento2-update-notify.git",
-                "reference": "9698840a90a8a04a98faedb69afcc96e28d1532c"
+                "reference": "bcdd973d09f8cb502c1a68da62e38c0d5358fcdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonathan-martz/magento2-update-notify/zipball/9698840a90a8a04a98faedb69afcc96e28d1532c",
-                "reference": "9698840a90a8a04a98faedb69afcc96e28d1532c",
+                "url": "https://api.github.com/repos/jonathan-martz/magento2-update-notify/zipball/bcdd973d09f8cb502c1a68da62e38c0d5358fcdf",
+                "reference": "bcdd973d09f8cb502c1a68da62e38c0d5358fcdf",
                 "shasum": ""
             },
             "require": {
@@ -1511,7 +1551,7 @@
                     "email": "github@jmartz.de"
                 }
             ],
-            "time": "2019-12-06T15:36:55+00:00"
+            "time": "2019-12-08T18:50:58+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -21066,6 +21106,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "jonathan-martz/magento2-update-notify": 20,
+        "jonathan-martz/magento2-statistics": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": false,
