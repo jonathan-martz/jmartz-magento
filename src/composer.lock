@@ -1481,12 +1481,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonathan-martz/magento2-statistics.git",
-                "reference": "d239db35911198c4d94d289f5e426ab0410a36c5"
+                "reference": "14f4f1adf3c74b9f5996d935b88a01f13bf35b66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonathan-martz/magento2-statistics/zipball/d239db35911198c4d94d289f5e426ab0410a36c5",
-                "reference": "d239db35911198c4d94d289f5e426ab0410a36c5",
+                "url": "https://api.github.com/repos/jonathan-martz/magento2-statistics/zipball/14f4f1adf3c74b9f5996d935b88a01f13bf35b66",
+                "reference": "14f4f1adf3c74b9f5996d935b88a01f13bf35b66",
                 "shasum": ""
             },
             "require": {
@@ -1512,7 +1512,7 @@
                     "email": "github@jmartz.de"
                 }
             ],
-            "time": "2019-12-08T22:10:33+00:00"
+            "time": "2019-12-09T21:48:00+00:00"
         },
         {
             "name": "jonathan-martz/magento2-update-notify",
