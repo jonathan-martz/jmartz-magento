@@ -53,8 +53,9 @@ cache:
     - $HOME/node_modules
     - $HOME/yarn.lock
 before_install:
+  - composer install --no-interaction
   - ./src/dev/travis/before_install.sh
-install: composer install --no-interaction
+install: echo 'Hello'
 before_script: ./src/dev/travis/before_script.sh
 script:
   # Set arguments for variants of phpunit based tests; '|| true' prevents failing script when leading test fails
