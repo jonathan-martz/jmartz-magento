@@ -53,15 +53,15 @@ cache:
     - $HOME/node_modules
     - $HOME/yarn.lock
 before_install:
-  - ./dev/travis/before_install.sh
+  - ./src/dev/travis/before_install.sh
 install: composer install --no-interaction
-before_script: ./dev/travis/before_script.sh
+before_script: ./src/dev/travis/before_script.sh
 script:
   # Set arguments for variants of phpunit based tests; '|| true' prevents failing script when leading test fails
-  - test $TEST_SUITE = "functional" && TEST_FILTER='dev/tests/functional/testsuites/Magento/Mtf/TestSuite/InjectableTests.php' || true
+  - test $TEST_SUITE = "functional" && TEST_FILTER='src/dev/tests/functional/testsuites/Magento/Mtf/TestSuite/InjectableTests.php' || true
 
   # The scripts for grunt/phpunit type tests
-  - if [ $TEST_SUITE == "functional" ]; then dev/tests/functional/vendor/phpunit/phpunit/phpunit -c dev/tests/$TEST_SUITE $TEST_FILTER; fi
-  - if [ $TEST_SUITE != "functional" ] && [ $TEST_SUITE != "js" ] && [ $TEST_SUITE != "graphql-api-functional" ]; then phpunit -c dev/tests/$TEST_SUITE $TEST_FILTER; fi
+  - if [ $TEST_SUITE == "functional" ]; then src/dev/tests/functional/vendor/phpunit/phpunit/phpunit -c src/dev/tests/$TEST_SUITE $TEST_FILTER; fi
+  - if [ $TEST_SUITE != "functional" ] && [ $TEST_SUITE != "js" ] && [ $TEST_SUITE != "graphql-api-functional" ]; then phpunit -c src/dev/tests/$TEST_SUITE $TEST_FILTER; fi
   - if [ $TEST_SUITE == "js" ]; then grunt $GRUNT_COMMAND; fi
   - if [ $TEST_SUITE == "graphql-api-functional" ]; then phpunit -c dev/tests/api-functional; fi
