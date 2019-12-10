@@ -1737,12 +1737,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonathan-martz/magento2-update-notify.git",
-                "reference": "9e0d8bd9842f5cd831c72fe2d8e41ace352b472d"
+                "reference": "f191e64a7a6a42b5f2281162102e3f4022ccc81b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonathan-martz/magento2-update-notify/zipball/9e0d8bd9842f5cd831c72fe2d8e41ace352b472d",
-                "reference": "9e0d8bd9842f5cd831c72fe2d8e41ace352b472d",
+                "url": "https://api.github.com/repos/jonathan-martz/magento2-update-notify/zipball/f191e64a7a6a42b5f2281162102e3f4022ccc81b",
+                "reference": "f191e64a7a6a42b5f2281162102e3f4022ccc81b",
                 "shasum": ""
             },
             "require": {
@@ -1770,7 +1770,7 @@
                     "email": "github@jmartz.de"
                 }
             ],
-            "time": "2019-12-10T18:13:28+00:00"
+            "time": "2019-12-10T20:14:51+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
