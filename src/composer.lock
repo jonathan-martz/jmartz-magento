@@ -1481,12 +1481,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonathan-martz/magento2-statistics.git",
-                "reference": "1c93a1adfd55e493cf21e9f21dd5270b5d0f935e"
+                "reference": "a26568c70c87c629d95cdc87098b590655cd4042"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonathan-martz/magento2-statistics/zipball/1c93a1adfd55e493cf21e9f21dd5270b5d0f935e",
-                "reference": "1c93a1adfd55e493cf21e9f21dd5270b5d0f935e",
+                "url": "https://api.github.com/repos/jonathan-martz/magento2-statistics/zipball/a26568c70c87c629d95cdc87098b590655cd4042",
+                "reference": "a26568c70c87c629d95cdc87098b590655cd4042",
                 "shasum": ""
             },
             "require": {
@@ -1513,7 +1513,7 @@
                     "email": "github@jmartz.de"
                 }
             ],
-            "time": "2019-12-09T22:14:40+00:00"
+            "time": "2019-12-09T22:40:51+00:00"
         },
         {
             "name": "jonathan-martz/magento2-update-notify",
@@ -1521,15 +1521,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonathan-martz/magento2-update-notify.git",
-                "reference": "bcdd973d09f8cb502c1a68da62e38c0d5358fcdf"
+                "reference": "16db7ee8e9291d3ef9704868db974f549d60577b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonathan-martz/magento2-update-notify/zipball/bcdd973d09f8cb502c1a68da62e38c0d5358fcdf",
-                "reference": "bcdd973d09f8cb502c1a68da62e38c0d5358fcdf",
+                "url": "https://api.github.com/repos/jonathan-martz/magento2-update-notify/zipball/16db7ee8e9291d3ef9704868db974f549d60577b",
+                "reference": "16db7ee8e9291d3ef9704868db974f549d60577b",
                 "shasum": ""
             },
             "require": {
+                "ext-curl": "*",
                 "ext-json": "*",
                 "php": "^7.1|^7.2|^7.3|^7.4"
             },
@@ -1552,7 +1553,7 @@
                     "email": "github@jmartz.de"
                 }
             ],
-            "time": "2019-12-08T18:50:58+00:00"
+            "time": "2019-12-10T16:39:38+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -11556,16 +11557,16 @@
         },
         {
             "name": "mageplaza/module-core",
-            "version": "1.4.6",
+            "version": "1.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mageplaza/module-core.git",
-                "reference": "85bfb6ef453471b2cef789dcf23525be8e7b881f"
+                "reference": "42d9af79e09138d5be09f577256ba4af7ad2b657"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/85bfb6ef453471b2cef789dcf23525be8e7b881f",
-                "reference": "85bfb6ef453471b2cef789dcf23525be8e7b881f",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/42d9af79e09138d5be09f577256ba4af7ad2b657",
+                "reference": "42d9af79e09138d5be09f577256ba4af7ad2b657",
                 "shasum": ""
             },
             "type": "magento2-module",
@@ -11590,7 +11591,7 @@
                 }
             ],
             "description": "Mageplaza Core for Magento 2",
-            "time": "2019-08-16T08:51:45+00:00"
+            "time": "2019-12-10T07:46:18+00:00"
         },
         {
             "name": "mageplaza/module-google-recaptcha",
@@ -11680,16 +11681,16 @@
         },
         {
             "name": "mageplaza/module-two-factor-authentication",
-            "version": "1.0.3",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mageplaza/magento-2-two-factor-authentication.git",
-                "reference": "227a008fb6127c96a56487b8e881080455c89e71"
+                "reference": "ee3d355d9b8b9b76e3010ec68545804951c2fd9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/magento-2-two-factor-authentication/zipball/227a008fb6127c96a56487b8e881080455c89e71",
-                "reference": "227a008fb6127c96a56487b8e881080455c89e71",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-two-factor-authentication/zipball/ee3d355d9b8b9b76e3010ec68545804951c2fd9d",
+                "reference": "ee3d355d9b8b9b76e3010ec68545804951c2fd9d",
                 "shasum": ""
             },
             "require": {
@@ -11720,7 +11721,7 @@
                 }
             ],
             "description": "Magento 2 Two Factors Authentication Extension",
-            "time": "2019-10-30T04:02:35+00:00"
+            "time": "2019-12-10T08:24:46+00:00"
         },
         {
             "name": "monolog/monolog",
