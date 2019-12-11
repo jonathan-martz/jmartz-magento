@@ -6,7 +6,7 @@ class RoboFile extends \Robo\Tasks
 		$filename = 'robo-config.json';
 
 		$robo['user'] = 'root';
-		$robo['host'] = '195.201.38.163';
+		$robo['host'] = '78.47.51.76';
 		$robo['tmp'] = date('d-m-Y-h-i-s');
 		$robo['folder'] = 'magento-develop.jmartz.de';
 
@@ -21,7 +21,7 @@ class RoboFile extends \Robo\Tasks
 		$filename = 'robo-config.json';
 
 		$robo['user'] = 'root';
-		$robo['host'] = '195.201.38.163';
+		$robo['host'] = '78.47.51.76';
 		$robo['tmp'] = date('d-m-Y-h-i-s');
 		$robo['folder'] = 'magento.jmartz.de';
 
