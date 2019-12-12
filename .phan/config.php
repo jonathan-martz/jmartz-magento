@@ -15,7 +15,9 @@ return [
     // Thus, both first-party and third-party code being used by
     // your application should be included in this list.
     'directory_list' => [
-        'src/app/code/'
+        'src/app/code/',
+        'src/vendor/',
+        'src/generated/'
     ],
     // A directory list that defines files that will be excluded
     // from static analysis, but whose class and method
