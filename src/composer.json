@@ -35,7 +35,8 @@
         "magento/product-community-edition": "^2.3.3",
         "magento/sample-data-media": "^100.3",
         "symfony/http-client": "v5.0.1",
-        "nyholm/psr7": "^1.2.1"
+        "nyholm/psr7": "^1.2.1",
+        "jonathan-martz/magento2-webapi-stats": "dev-master"
     },
     "conflict": {
         "gene/bluefoot": "*"
