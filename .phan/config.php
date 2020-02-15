@@ -16,6 +16,7 @@ return [
     // your application should be included in this list.
     'directory_list' => [
         'src/app/code/',
+        'src/app/design/',
         'src/vendor/',
         'src/generated/'
     ],
@@ -44,6 +45,8 @@ return [
     //
     // Alternately, you can pass in the full path to a PHP file
     // with the plugin's implementation (e.g. 'vendor/phan/phan/.phan/plugins/AlwaysReturnPlugin.php')
+    // @todo add more modules ?
+    // @todo create own module for php rate?
     'plugins' => [
         // checks if a function, closure or method unconditionally returns.
         // can also be written as 'vendor/phan/phan/.phan/plugins/AlwaysReturnPlugin.php'
