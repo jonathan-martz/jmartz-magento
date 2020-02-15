@@ -1,8 +1,10 @@
-/src/pub
-/src/generated
-/src/var
-/src/dev
-/src/vendor
 .idea
-
-/vendor/
+src/bin
+src/dev
+src/generated
+src/lib
+src/phpserver
+src/pub
+src/setup
+src/var
+src/vendor
