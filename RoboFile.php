@@ -1,8 +1,11 @@
 <?php
 
-class RoboFile extends \Robo\Tasks
+use Robo\Tasks;
+
+class RoboFile extends Tasks
 {
-	public function generateRoboConfigDevelop(){
+	public function generateRoboConfigDevelop()
+	{
 		$filename = 'robo-config.json';
 
 		$robo['user'] = 'root';
@@ -10,14 +13,15 @@ class RoboFile extends \Robo\Tasks
 		$robo['tmp'] = date('d-m-Y-h-i-s');
 		$robo['folder'] = 'magento-develop.jmartz.de';
 
-		if(\file_exists($filename)){
-			\exec('rm '.$filename);
+		if(file_exists($filename)) {
+			exec('rm ' . $filename);
 		}
 
-		\file_put_contents('robo-config.json', \json_encode($robo, JSON_FORCE_OBJECT));
+		file_put_contents('robo-config.json', json_encode($robo, JSON_FORCE_OBJECT));
 	}
 
-	public function generateRoboConfigMaster(){
+	public function generateRoboConfigMaster()
+	{
 		$filename = 'robo-config.json';
 
 		$robo['user'] = 'root';
@@ -25,20 +29,20 @@ class RoboFile extends \Robo\Tasks
 		$robo['tmp'] = date('d-m-Y-h-i-s');
 		$robo['folder'] = 'magento.jmartz.de';
 
-		if(\file_exists($filename)){
-			\exec('rm '.$filename);
+		if(file_exists($filename)) {
+			exec('rm ' . $filename);
 		}
 
-		\file_put_contents('robo-config.json', \json_encode($robo, JSON_FORCE_OBJECT));
+		file_put_contents('robo-config.json', json_encode($robo, JSON_FORCE_OBJECT));
 	}
 
 	public function loadRoboConfig():array{
 		$filename = 'robo-config.json';
 
-		if(file_exists($filename)){
-			$file = \file_get_contents($filename);
+		if(file_exists($filename)) {
+			$file = file_get_contents($filename);
 
-			return \json_decode($file,true);
+			return json_decode($file, true);
 		}
 
 		return [];
@@ -49,9 +53,8 @@ class RoboFile extends \Robo\Tasks
     	$config = $this->loadRoboConfig();
 
 		$this->taskSshExec($config['host'], $config['user'])
-			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'])
+			->remoteDir('/var/www/' . $config['folder'] . '/releases/' . $config['tmp'] . '/src')
 			->exec('composer install --ignore-platform-reqs')
-			->exec('cd src && composer install --ignore-platform-reqs')
 			->run();
     }
 
