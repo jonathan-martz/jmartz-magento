@@ -41,9 +41,6 @@
     "conflict": {
         "gene/bluefoot": "*"
     },
-    "replace": {
-        "magento/module-inventory-admin-ui": "*"
-    },
     "autoload": {
         "psr-4": {
             "Magento\\Framework\\": "lib/internal/Magento/Framework/",
