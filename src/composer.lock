@@ -1482,12 +1482,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonathan-martz/magento2-webapi-stats.git",
-                "reference": "0a1f5e53fd91d5f1013ffd75aca8485e1a0ba0ab"
+                "reference": "6abac0fde9f290207ef241eec1f7c3ec27f61857"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonathan-martz/magento2-webapi-stats/zipball/0a1f5e53fd91d5f1013ffd75aca8485e1a0ba0ab",
-                "reference": "0a1f5e53fd91d5f1013ffd75aca8485e1a0ba0ab",
+                "url": "https://api.github.com/repos/jonathan-martz/magento2-webapi-stats/zipball/6abac0fde9f290207ef241eec1f7c3ec27f61857",
+                "reference": "6abac0fde9f290207ef241eec1f7c3ec27f61857",
                 "shasum": ""
             },
             "require": {
@@ -1513,7 +1513,7 @@
                 }
             ],
             "description": "Stats for Magento2 Web Api",
-            "time": "2020-02-17T20:42:38+00:00"
+            "time": "2020-02-19T21:57:44+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
