@@ -1518,12 +1518,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonathan-martz/magento2-supportform.git",
-                "reference": "005d16fa5e2c362ab47813c71afe1cfa0c98d17c"
+                "reference": "04d30470b9472f053af0c1356846a695143569ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonathan-martz/magento2-supportform/zipball/005d16fa5e2c362ab47813c71afe1cfa0c98d17c",
-                "reference": "005d16fa5e2c362ab47813c71afe1cfa0c98d17c",
+                "url": "https://api.github.com/repos/jonathan-martz/magento2-supportform/zipball/04d30470b9472f053af0c1356846a695143569ab",
+                "reference": "04d30470b9472f053af0c1356846a695143569ab",
                 "shasum": ""
             },
             "type": "magento2-module",
@@ -1546,7 +1546,7 @@
                 }
             ],
             "description": "Support Form",
-            "time": "2020-02-22T16:23:02+00:00"
+            "time": "2020-02-22T22:54:09+00:00"
         },
         {
             "name": "jonathan-martz/magento2-webapi-stats",
