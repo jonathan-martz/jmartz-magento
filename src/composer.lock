@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dffeab66f3aa3d4d3dee0be8168d8a00",
+    "content-hash": "a5ffc37accdb7e64789a4b0ff0954303",
     "packages": [
         {
             "name": "amzn/amazon-pay-and-login-magento-2-module",
@@ -1477,17 +1477,89 @@
             "time": "2014-10-12T19:18:40+00:00"
         },
         {
+            "name": "jonathan-martz/magento2-menu-developer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jonathan-martz/magento2-menu-developer.git",
+                "reference": "44cb82d4e6a7562676ad759c9aae90841696cd1a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jonathan-martz/magento2-menu-developer/zipball/44cb82d4e6a7562676ad759c9aae90841696cd1a",
+                "reference": "44cb82d4e6a7562676ad759c9aae90841696cd1a",
+                "shasum": ""
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "JonathanMartz\\Developer\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Martz",
+                    "homepage": "https://www.jmartz.de"
+                }
+            ],
+            "description": "Magento2 Developer Tab",
+            "time": "2020-02-22T11:13:12+00:00"
+        },
+        {
+            "name": "jonathan-martz/magento2-supportform",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jonathan-martz/magento2-supportform.git",
+                "reference": "250ca079c253a93e6ecccf53565c2bb99f8aa898"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jonathan-martz/magento2-supportform/zipball/250ca079c253a93e6ecccf53565c2bb99f8aa898",
+                "reference": "250ca079c253a93e6ecccf53565c2bb99f8aa898",
+                "shasum": ""
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "JonathanMartz\\SupportForm\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Martz",
+                    "homepage": "https://www.jmartz.de"
+                }
+            ],
+            "description": "Support Form",
+            "time": "2020-02-22T16:03:02+00:00"
+        },
+        {
             "name": "jonathan-martz/magento2-webapi-stats",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jonathan-martz/magento2-webapi-stats.git",
-                "reference": "6abac0fde9f290207ef241eec1f7c3ec27f61857"
+                "reference": "af19f3ab047c21fc45ee6a497c9ba609ed52ae48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jonathan-martz/magento2-webapi-stats/zipball/6abac0fde9f290207ef241eec1f7c3ec27f61857",
-                "reference": "6abac0fde9f290207ef241eec1f7c3ec27f61857",
+                "url": "https://api.github.com/repos/jonathan-martz/magento2-webapi-stats/zipball/af19f3ab047c21fc45ee6a497c9ba609ed52ae48",
+                "reference": "af19f3ab047c21fc45ee6a497c9ba609ed52ae48",
                 "shasum": ""
             },
             "require": {
@@ -1513,7 +1585,7 @@
                 }
             ],
             "description": "Stats for Magento2 Web Api",
-            "time": "2020-02-19T21:57:44+00:00"
+            "time": "2020-02-22T11:56:45+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -16434,7 +16506,9 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "jonathan-martz/magento2-webapi-stats": 20
+        "jonathan-martz/magento2-webapi-stats": 20,
+        "jonathan-martz/magento2-supportform": 20,
+        "jonathan-martz/magento2-menu-developer": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -36,7 +36,9 @@
         "magento/sample-data-media": "^100.3",
         "symfony/http-client": "v5.0.1",
         "nyholm/psr7": "^1.2.1",
-        "jonathan-martz/magento2-webapi-stats": "dev-master"
+        "jonathan-martz/magento2-webapi-stats": "dev-master",
+        "jonathan-martz/magento2-supportform": "dev-master",
+        "jonathan-martz/magento2-menu-developer": "dev-master"
     },
     "conflict": {
         "gene/bluefoot": "*"
