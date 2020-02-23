@@ -38,7 +38,8 @@
         "nyholm/psr7": "^1.2.1",
         "jonathan-martz/magento2-webapi-stats": "dev-master",
         "jonathan-martz/magento2-supportform": "dev-master",
-        "jonathan-martz/magento2-menu-developer": "dev-master"
+        "jonathan-martz/magento2-menu-developer": "dev-master",
+        "jonathan-martz/magento2-usage-stats": "dev-master"
     },
     "conflict": {
         "gene/bluefoot": "*"
@@ -65,7 +66,6 @@
             "**/Test/**"
         ]
     },
-    "minimum-stability": "stable",
     "repositories": [
         {
             "type": "composer",
