@@ -7,7 +7,7 @@ pipeline {
                 branch "master"
             }
             steps {
-                sh 'robo generate:robo-config-master'
+                sh 'php -d memory_limit=1024MB /usr/bin/robo generate:robo-config-master'
             }
         }
         stage('Generate Config: Develop') {
@@ -15,46 +15,46 @@ pipeline {
                 branch "develop"
             }
             steps {
-                sh 'robo generate:robo-config-develop'
+                sh 'php -d memory_limit=1024MB /usr/bin/robo generate:robo-config-develop'
             }
         }
         stage('Remove Old Revisions start') {
             steps {
-                sh 'robo remove:old-revisions'
+                sh 'php -d memory_limit=1024MB /usr/bin/robo remove:old-revisions'
             }
         }
         stage('Deploy') {
             steps {
-                sh 'robo deploy'
+                sh 'php -d memory_limit=1024MB /usr/bin/robo deploy'
             }
         }
         stage('Install requirements') {
             steps {
-                sh 'robo composer:install'
+                sh 'php -d memory_limit=1024MB /usr/bin/robo composer:install'
             }
         }
         stage('Magento2 Setup') {
             steps {
-                sh 'robo su'
-                sh 'robo sdc'
-                sh 'robo sscd'
-                sh 'robo cacl'
-                sh 'robo download:n98'
+                sh 'php -d memory_limit=1024MB /usr/bin/robo su'
+                sh 'php -d memory_limit=1024MB /usr/bin/robo sdc'
+                sh 'php -d memory_limit=1024MB /usr/bin/robo sscd'
+                sh 'php -d memory_limit=1024MB /usr/bin/robo cacl'
+                sh 'php -d memory_limit=1024MB /usr/bin/robo download:n98'
             }
         }
         stage('Phan') {
             steps {
-                sh 'robo phan:check'
+                sh 'php -d memory_limit=1024MB /usr/bin/robo phan:check'
             }
         }
         stage('Publish Version') {
             steps {
-                sh 'robo publish:version'
+                sh 'php -d memory_limit=1024MB /usr/bin/robo publish:version'
             }
         }
         stage('Remove Old Revisions end') {
             steps {
-                sh 'robo remove:old-revisions'
+                sh 'php -d memory_limit=1024MB /usr/bin/robo remove:old-revisions'
             }
         }
     }
